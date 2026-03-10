@@ -104,7 +104,15 @@ const heroImg =
       <!-- Fila 3: Fecha máx. 1ª matriculación -->
       <label>
         <div style="font-weight:500; margin-bottom:6px;">Fecha máxima de 1ª matriculación</div>
-        <input type="date" name="first_registration_max" id="regMax" />
+        <input
+  type="number"
+  name="first_registration_max"
+  id="regMax"
+  placeholder="Ej. 2021"
+  min="1990"
+  max="2026"
+  step="1"
+/>
       </label>
 
       <!-- Fila 4: Info adicional -->

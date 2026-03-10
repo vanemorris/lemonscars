@@ -1,5 +1,5 @@
 ---
-const whatsappNumber = "34699489038"; // <-- CAMBIA ESTO (sin +, sin espacios)
+const whatsappNumber = "34699489038"; 
 
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20importaci%C3%B3n%20de%20un%20coche%20desde%20Alemania.`;
 
@@ -9,19 +9,19 @@ const links = [
 ];
 ---
 <header style="position:sticky; top:0; z-index:50; backdrop-filter: blur(14px); background: rgba(7,8,11,.55); border-bottom:1px solid rgba(255,255,255,.06);">
-  <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:14px 0;">
-  <div style="display:flex; align-items:center; gap:.7rem;">
-<span class="pill logoPill">
-  <img
-    src="/images/logo-lemoncars.jpg"
-    alt="LEMONCARS"
-    class="logoImg"
-  />
-</span>
-      <span style="color:var(--muted); font-size:.9rem; display:none;" class="tagline">Importación premium</span>
+  <div class="container headerBar">
+    <div class="brandWrap">
+      <span class="pill logoPill">
+        <img
+          src="/images/logo-lemoncars.jpg"
+          alt="LEMONCARS"
+          class="logoImg"
+        />
+      </span>
+      <span class="tagline">Importación premium</span>
     </div>
 
-    <nav style="display:none; gap:14px; align-items:center;" class="nav">
+    <nav class="nav">
       {links.map(l => (
         <a
           href={l.href}
@@ -57,8 +57,6 @@ const links = [
         </a>
       ))}
     </nav>
-
-   
   </div>
 </header>
 
@@ -69,11 +67,71 @@ header{
   z-index: 9999;
 }
 
+.headerBar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px 0;
+}
+
+.brandWrap{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  min-width:0;
+}
+
+.tagline{
+  color:var(--muted);
+  font-size:.8rem;
+  white-space:nowrap;
+}
+
+.nav{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:nowrap;
+}
+
+.nav a{
+  font-size:.85rem;
+  white-space:nowrap;
+}
+
 /* Desktop */
 @media (min-width: 860px){
-  .nav{ display:flex !important; }
-  .mobileCta{ display:none; }
-  .tagline{ display:inline !important; }
+  .nav{ gap:14px; }
+  .nav a{ font-size:1rem; }
+  .tagline{ font-size:.9rem; }
+}
+
+/* Móvil */
+@media (max-width: 859px){
+  .logoImg{
+    max-height:42px;
+    width:auto;
+  }
+
+  .tagline{
+    font-size:.72rem;
+  }
+
+  .nav a{
+    padding:.4rem .45rem !important;
+    font-size:.78rem;
+  }
+
+  .whatsIcon{
+    width:16px;
+    height:16px;
+  }
+
+  .whatsIcon svg{
+    width:16px;
+    height:16px;
+  }
 }
 
 /* Hover general */
@@ -82,8 +140,6 @@ nav a:hover{
   border-color: rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
 }
-
-/* ===== WHATSAPP ESTILO PREMIUM ===== */
 
 .whatsLink{
   display:flex;
@@ -106,7 +162,6 @@ nav a:hover{
   display:block;
 }
 
-/* Hover elegante */
 .whatsLink:hover{
   color: #25D366;
   border-color: rgba(37,211,102,.25);
@@ -115,19 +170,5 @@ nav a:hover{
 
 .whatsLink:hover .whatsIcon{
   transform: scale(1.1);
-}
-
-/* Botón móvil verde WhatsApp */
-.whatsBtn{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background: #25D366 !important;
-  border: none !important;
-  color: #0b0f18 !important;
-}
-
-.whatsBtn:hover{
-  background: #1ebe5d !important;
 }
 </style>
