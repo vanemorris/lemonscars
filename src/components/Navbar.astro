@@ -88,6 +88,7 @@ header{
   white-space:nowrap;
 }
 
+
 .nav{
   display:flex;
   gap:8px;
@@ -105,6 +106,13 @@ header{
   .nav{ gap:14px; }
   .nav a{ font-size:1rem; }
   .tagline{ font-size:.9rem; }
+}
+
+/* Ocultar en móvil */
+@media (max-width: 859px){
+  .tagline{
+    display: none !important;
+  }
 }
 
 /* Móvil */
