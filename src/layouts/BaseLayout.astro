@@ -1,0 +1,26 @@
+---
+const { title = "Importación de Coches", description = "Trae tu coche premium desde Europa y otros mercados con un proceso seguro, transparente y llave en mano." } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#07080b" />
+
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  :global(body){ scroll-behavior:smooth; }
+</style>

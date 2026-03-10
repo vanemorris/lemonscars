@@ -1,0 +1,253 @@
+---
+const heroImg =
+  "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=2000&q=80";
+---
+<section class="hero" style={`--hero-img:url(${heroImg});`}>
+  <div class="container grid cols2 heroGrid">
+    
+ <!-- IZQUIERDA -->
+<div class="card heroBox heroCopyCompact">
+
+  <h1 class="heroTitleCompact">
+    Importa tu <span style="color:var(--accent)">coche</span>
+    desde Alemania, llave en mano
+  </h1>
+
+  <p class="heroTextCompact">
+    El mercado alemán es más económico y con mejor equipamiento que muchos equivalentes nacionales.
+    Nos encargamos de todo:
+  </p>
+
+  <!-- NUEVO BLOQUE INCLUYE -->
+  <div class="includeBox">
+    <div class="includeTitle">Incluye:</div>
+    <ul class="includeList">
+      <li>Selección de unidades + negociación</li>
+      <li>Informe de inspección con evidencias</li>
+      <li>Transporte asegurado</li>
+      <li>Gestión documental, aduanas y tasas</li>
+      <li>Homologación y matriculación (si aplica)</li>
+    </ul>
+  </div>
+
+</div>
+
+  <!-- DERECHA -->
+ <form class="card heroBox heroForm" method="POST" action="https://formsubmit.co/v.perea.velasco@gmail.com">
+  <input type="hidden" name="_subject" value="Nueva solicitud LEMONCARS">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="http://localhost:4321/gracias">
+    <div class="grid" style="gap:12px;">
+      <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px;">
+  <label>
+    <div style="font-weight:500; margin-bottom:6px;">Nombre</div>
+    <input name="client_name" placeholder="Tu nombre" required />
+  </label>
+
+  <label>
+    <div style="font-weight:500; margin-bottom:6px;">Email</div>
+    <input name="client_email" type="email" placeholder="tu@email.com" required />
+  </label>
+</div>
+
+<label>
+  <div style="font-weight:500; margin-bottom:6px;">Teléfono (opcional)</div>
+  <input name="client_phone" type="tel" placeholder="Ej. 600 000 000" />
+</label>
+      <!-- Fila 1: Marca + Modelo -->
+      <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px;">
+        <label>
+          <div style="font-weight:700; margin-bottom:6px;">Marca</div>
+          <div class="selectWrap">
+            <select name="brand" data-brand required>
+              <option value="">Selecciona</option>
+              <option value="audi">Audi</option>
+              <option value="bmw">BMW</option>
+              <option value="mercedes">Mercedes-Benz</option>
+              <option value="porsche">Porsche</option>
+              <option value="volkswagen">Volkswagen</option>
+            </select>
+          </div>
+        </label>
+
+        <label>
+          <div style="font-weight:700; margin-bottom:6px;">Modelo</div>
+          <div class="selectWrap">
+            <select name="model" data-model required disabled>
+              <option value="">Selecciona una marca</option>
+            </select>
+          </div>
+        </label>
+      </div>
+
+      <!-- Fila 2: Motor + KMs -->
+      <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px;">
+        <label>
+          <div style="font-weight:700; margin-bottom:6px;">Tipo de motor</div>
+          <select name="engine" required>
+            <option value="">Selecciona</option>
+            <option value="gasolina">Gasolina</option>
+            <option value="diesel">Diésel</option>
+            <option value="electrico">Eléctrico</option>
+            <option value="hibrido">Híbrido</option>
+            <option value="hibrido-enchufable">Híbrido enchufable</option>
+          </select>
+        </label>
+
+        <label>
+          <div style="font-weight:500; margin-bottom:6px;">KMs máximos</div>
+          <input name="mileage_max" placeholder="Ej. 50.000" inputmode="numeric" />
+        </label>
+      </div>
+
+      <!-- Fila 3: Fecha máx. 1ª matriculación -->
+      <label>
+        <div style="font-weight:500; margin-bottom:6px;">Fecha máxima de 1ª matriculación</div>
+        <input type="date" name="first_registration_max" id="regMax" />
+      </label>
+
+      <!-- Fila 4: Info adicional -->
+      <label>
+        <div style="font-weight:500; margin-bottom:6px;">Información adicional</div>
+        <textarea
+          name="extra_info"
+          rows="2"
+          placeholder="Extras imprescindibles, presupuesto, ciudad de entrega, acabado, color preferido, etc."
+        ></textarea>
+      </label>
+
+      <button class="btn primary" type="submit">Enviar solicitud</button>
+
+      <p class="p" style="font-size:.9rem; margin:0;">
+        Al enviar aceptas ser contactado para esta consulta.
+      </p>
+    </div>
+
+  <script is:inline>
+    const modelsByBrand = {
+      audi: ["A1","A3","A4","A5","A6","A7","A8","Q2","Q3","Q5","Q7","Q8","TT","e-tron","RS3","RS4","RS5","RS6","S3","S4","S5"],
+      bmw: ["Serie 1","Serie 2","Serie 3","Serie 4","Serie 5","Serie 6","Serie 7","X1","X2","X3","X4","X5","X6","X7","Z4","i3","i4","i5","i7","iX","M2","M3","M4","M5"],
+      mercedes: ["Clase A","Clase B","Clase C","Clase E","Clase S","CLA","CLS","GLA","GLB","GLC","GLE","GLS","AMG GT","EQB","EQC","EQE","EQS","Vito","Sprinter"],
+      porsche: ["911","718 Cayman","718 Boxster","Cayenne","Macan","Panamera","Taycan"],
+      volkswagen: ["Polo","Golf","Passat","T-Roc","Tiguan","Touareg","T-Cross","ID.3","ID.4","ID.5","ID.7","Arteon"],
+      opel: ["Corsa","Astra","Insignia","Mokka","Grandland","Zafira","Combo","Vivaro"]
+    };
+
+    // Encuentra EL formulario que contiene estos selects
+    const brandSelect = document.querySelector('form [data-brand]');
+    const modelSelect = document.querySelector('form [data-model]');
+
+    function setModels(brandKey){
+      const models = modelsByBrand[brandKey] || [];
+      modelSelect.innerHTML = "";
+
+      const firstOpt = document.createElement("option");
+      firstOpt.value = "";
+      firstOpt.textContent = models.length ? "Selecciona" : "Sin modelos disponibles";
+      modelSelect.appendChild(firstOpt);
+
+      for (const m of models){
+        const opt = document.createElement("option");
+        opt.value = m;
+        opt.textContent = m;
+        modelSelect.appendChild(opt);
+      }
+
+      modelSelect.disabled = models.length === 0;
+      modelSelect.value = ""; // resetea selección
+    }
+
+    if (brandSelect && modelSelect){
+      brandSelect.addEventListener("change", (e) => {
+        setModels(e.target.value);
+      });
+    } else {
+      console.warn("No se encontraron los selects de marca/modelo. Revisa data-brand/data-model.");
+    }
+</script>
+</form>
+
+  <style>
+    select{
+    appearance: none;
+  }
+
+  select option{
+    background: #0b0f18;
+    color: #ffffff;
+  }
+.hero{
+  background-image: var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+    /* MISMO tamaño para ambas cajas */
+    .heroGrid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+  .heroBox{
+    padding: 18px;
+    background: rgba(14,17,26,.62);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.10);
+    display: flex;
+    flex-direction: column;
+   
+  }
+
+
+    input, textarea, select{
+      width:100%;
+      padding:.85rem .9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      outline:none;
+    }
+
+    @media (max-width: 900px){
+      .heroGrid{
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Select cerrado (lo que se ve antes de desplegar) */
+    select{
+      width:100%;
+      padding:.85rem .9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(14,17,26,.55);
+      color: rgba(255,255,255,.92);
+      outline:none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    /* Flecha elegante */
+    .selectWrap{
+      position: relative;
+    }
+    .selectWrap:after{
+      content:"▾";
+      position:absolute;
+      right:12px;
+      top:50%;
+      transform: translateY(-50%);
+      pointer-events:none;
+      opacity:.75;
+    }
+
+    /* Espacio para que no se pise la flecha */
+    .selectWrap select{
+      padding-right: 36px;
+    }
+  </style>
+</section>

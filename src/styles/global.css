@@ -1,0 +1,207 @@
+:root{
+  --bg: #07080b;
+  --bg2:#0b0d12;
+  --card:#0e111a;
+  --text:#e9edf7;
+  --muted:#aab3c7;
+  --line: rgba(255,255,255,.08);
+  --accent:#c7a44a; /* dorado */
+  --accent2:#6ee7ff; /* cian sutil */
+  --shadow: 0 30px 80px rgba(0,0,0,.55);
+  --radius: 18px;
+  --max: 1120px;
+  --grad: radial-gradient(1000px 600px at 10% 0%, rgba(110,231,255,.12), transparent 50%),
+          radial-gradient(900px 600px at 90% 10%, rgba(199,164,74,.14), transparent 55%),
+          radial-gradient(700px 500px at 50% 100%, rgba(120,99,255,.10), transparent 55%);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background: var(--bg);
+  background-image: var(--grad);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+
+.container{
+  width:min(var(--max), calc(100% - 40px));
+  margin-inline:auto;
+}
+
+.pill{
+  display:inline-flex;
+  gap:.5rem;
+  align-items:center;
+  padding:.45rem .75rem;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.02);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:.9rem;
+  backdrop-filter: blur(10px);
+}
+.logoPill{
+  padding:.35rem .65rem; /* un poco menos para que quede más fino */
+}
+
+.logoImg{
+  height:50px;      /* ajusta entre 18px y 24px si quieres */
+  width:auto;
+  display:block;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.6rem;
+  padding:.9rem 1.05rem;
+  border-radius: 999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  cursor:pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  font-weight:650;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+}
+
+.btn.primary{
+  background: linear-gradient(135deg, rgba(199,164,74,.95), rgba(110,231,255,.22));
+  border-color: rgba(199,164,74,.35);
+  color:#0a0b0f;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.sectionTestimonials{
+  padding-top: 100px;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+.section{
+  padding: 5px 0;
+}
+
+.h2{
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.p{
+  margin:0;
+  color: var(--muted);
+}
+
+.grid{
+  display:grid;
+  gap: 18px;
+}
+
+@media (min-width: 860px){
+  .grid.cols2{ grid-template-columns: 1.1fr .9fr; }
+  .grid.cols3{ grid-template-columns: repeat(3, 1fr); }
+  .grid.cols4{ grid-template-columns: repeat(4, 1fr); }
+}
+
+.hero{
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+
+  align-items: flex-start;      /* ← en vez de center */
+  justify-content: center;
+
+  padding-top: 0px;            /* ← ajusta: 0 / 10 / 18 */
+  padding-bottom: 40px;
+
+  background: url('/images/coche-hero.jpg') center/cover no-repeat;
+}
+
+
+.overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+
+  display:flex;
+  align-items:flex-start;     /* ← en vez de center */
+  justify-content:center;
+
+  padding: 0px 20px 0;       /* ← sube el contenido, quita hueco arriba */
+  text-align:left;            /* ← para que el bloque izquierdo no quede centrado */
+}
+
+.hero-content{
+  max-width: 800px;
+  color: white;
+}
+
+.hero h1{
+  font-size: 3rem;
+  margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.hero p{
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta{
+  background: #c7a44a;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}
+.includeBox{
+  margin-top: 10px;
+}
+
+.includeTitle{
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: .95rem;
+  opacity: .95;
+}
+
+.includeList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.includeList li{
+  font-size: .95rem;
+  color: rgba(255,255,255,.85);
+  position: relative;
+  padding-left: 18px;
+}
+
+.includeList li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}

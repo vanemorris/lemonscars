@@ -1,0 +1,29 @@
+---
+const items = [
+  { name: "Carlos M.", txt: "Proceso impecable. Informe completo antes de pagar y seguimiento constante. Llegó perfecto." },
+  { name: "Laura G.", txt: "Me consiguieron la configuración exacta que quería. Trato VIP y cero sorpresas." },
+  { name: "Javier R.", txt: "Aduanas y homologación gestionadas sin líos. Lo repetiría." },
+];
+---
+<section class="section sectionTestimonials">
+  <div class="container">
+    <h2 class="h2">Clientes satisfechos</h2>
+
+    <div class="grid cols3" style="margin-top:18px;">
+      {items.map(i => (
+        <article class="card" style="padding:18px;">
+          <div class="pill" style="color:var(--text); border-color: rgba(255,255,255,.10);">★★★★★</div>
+          <p style="margin:12px 0 12px; color: var(--text); opacity:.92;">“{i.txt}”</p>
+          <div style="color:var(--muted); font-weight:700;">{i.name}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    /* Más hueco arriba SOLO en esta sección */
+    .sectionTestimonials{
+      padding-top: 110px !important; /* prueba 90 / 110 / 130 */
+    }
+  </style>
+</section>
